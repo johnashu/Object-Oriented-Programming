@@ -20,9 +20,9 @@ class Canine(LivingThing):
         self.furType = furType
         self.wild = wild
 
-    def FurType(self, fur):
-        fur = self.furType
-        print(fur)
+    def FurType(self):
+        self.furType = self.furType
+        print(self.furType)
 
     def isWild(self, wild):
         if self.wild is True:
