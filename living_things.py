@@ -11,11 +11,32 @@ class LivingThing:
     def DamageHealth(self, dmgAmount):
         self.health = self.health - dmgAmount
         if self.health == 0:
-            print(self.name, ' Is DeeD!!!')
+            print(self.name, ' Is DeeD!!!\n')
         elif dmgAmount > 0:
-            print("Ouch..", self.name, "Took ", dmgAmount, "of Damage\n\n" + self.name + '\'s New Health is: ', self.health, '\n\n')
+            print("\nOuch..", self.name, "Took ", dmgAmount, "of Damage\n\n" + self.name + '\'s New Health is: ', self.health, '\n')
 
 
+class Human(LivingThing):
+
+        def __init__(self, name, legs, age, health, languages, city):
+            self.name = name
+            self.legs = 2
+            self.age = age
+            self.health = health
+            self.hunger = 0
+            self.languages = [languages]
+            self.city = city
+                
+        def addLanguage(self, language):
+            self.languages.append(language)
+
+        def wearsGlasses(self, wears):
+            if wears is True:
+                print('\n' + self.name, 'Wears Glasses')
+            else:
+                print('\n' + self.name, "Does not wear glasses")
+
+   
 class Canine(LivingThing):
 
     def __init__(self, furType, wild, name, legs, age, health):
@@ -29,13 +50,13 @@ class Canine(LivingThing):
 
     def FurType(self):
         if self.furType == self.furType:
-            print(self.furType)
+            return self.furType
 
     def isWild(self):
         if self.wild is True:
-            print("Be CAreful, This is a Wild Animal!!")
+            return "Be Careful, This is a Wild Animal!!\n"
         else:
-            print('Feel Free To Pet My Dog!!')
+            return 'Feel Free To Pet My Dog!!\n'
 
 
 class Feline(LivingThing):
@@ -51,18 +72,23 @@ class Feline(LivingThing):
 
     def FurType(self):
         if self.furType == self.furType:
-            print(self.furType)
+            return self.furType
 
     def isWild(self):
         if self.wild is True:
-            print("Be Careful, This is a Wild Animal!!")
+            return "Be Careful, This is a Wild Animal!!\n"
         else:
-            print('Feel Free To Pet My Cat!!')
+            return 'Feel Free To Pet My Cat!!\n'
 
 
 
-john = LivingThing('John', 2, 36, 65)
+john = Human('John', 2, 36, 65, 'English', 'Rosmalen')
 john.DamageHealth(15)
+john.addLanguage('Dutch')
+print("LAnguages spoken by ", john.name, john.languages)
+
+john.wearsGlasses(False)
+
 
 
 dog = Canine('Long-Haired', True, 'Fido', 4, 5, 86)
@@ -74,6 +100,7 @@ print(dog.isWild())
 print('\nThe Cat\'s fur is ', cat.FurType())
 print(cat.isWild())
 
-print(john.legs)
-print(dog.legs)
-print(cat.legs)
+#print(john.legs)
+#print(dog.legs)
+#print(cat.legs)
+
