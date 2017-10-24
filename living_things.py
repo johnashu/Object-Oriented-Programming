@@ -36,7 +36,7 @@ class Human(LivingThing):
             else:
                 print('\n' + self.name, "Does not wear glasses")
 
-        def hasChildren(self, haschild, gender=None, age=None):
+        def hasChildren(self, haschild, gender=None, age=0):
             gender = gender.upper()
             if haschild is True:
                 print(self.name, "has children")
@@ -49,18 +49,18 @@ class Human(LivingThing):
                 print("The child is a Girl")
             
             try:
-                if age == int:
+                age == int(age)
+                if age != 0:
                     print(self.name +'\'s', gender, 'is {} years old'.format(age))
                 else:
                     print("no age given")
-            except TypeError:
-                print(age, "is not an integer")
-                
+            except ValueError:
+                if age is not None:
+                    print(age, "is not an integer")
             
-
         def shoeSize(self, ss):
-            if ss is True:
-                print("shoe size is {}".format(ss))
+            if ss is int:
+                print(self.name, "shoe size is {}".format(ss))
 
 
    
@@ -116,8 +116,15 @@ print("LAnguages spoken by ", john.name, john.languages)
 
 john.wearsGlasses(False)
 
+
+john.shoeSize(9)
+
 john.hasChildren(True, 'MALE', 'beans')
-print(john.hasChildren)
+john.hasChildren(True, 'MALE', 1)
+john.hasChildren(True, 'MALE')
+
+
+
 
 
 dog = Canine('Long-Haired', True, 'Fido', 4, 5, 86)
