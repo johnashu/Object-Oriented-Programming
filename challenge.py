@@ -80,3 +80,10 @@ print("The total of Heads is {}".format(heads))
 print("The total of Tails is {}".format(tails))
 
 
+def fun(x):
+    if(x >100):
+        return x-10
+    else:
+        return fun(fun(x+11))
+
+print(fun(95))
