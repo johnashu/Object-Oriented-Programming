@@ -48,12 +48,12 @@ matrix_size = matrix_size_in
 
 matrix1 = create_matrix(matrix_size)
 for r in matrix1:
-    print('{:>15}'.format(*r))
+    print(r)
 print('\n')
 
 matrix2 = create_matrix(matrix_size)
 for r in matrix2:
-    print('{:>15}'.format(*r))
+    print(r)
 print('\n')
 
 zero_list = '0' * matrix_size
@@ -66,8 +66,8 @@ result_add = [[int(matrix1[i][j]) + int(matrix2[i][j])  for j in range(len(matri
 
 print('The result of adding the matrices is: \n')
 for r in result_add:
-    print('{:>15}'.format(*r))
-    #print(r)
+    #print('{:>15}'.format(*r))
+    print(r)
 print('\n')   
 
 # 2. Difference between the matrices.
@@ -76,14 +76,14 @@ result_sub = [[int(matrix1[i][j]) - int(matrix2[i][j])  for j in range(len(matri
 
 print('The difference between the matrices is: \n')
 for r in result_sub:
-    print('{:>15}'.format(*r))
-    #print(r)
+    #print('{:>15}'.format(*r))
+    print(r)
 print('\n')   
 
 result_mul = [[sum(int(a) * int(b) for a, b in zip(matrix1_row, matrix2_col)) for matrix2_col in zip(* matrix2)] for matrix1_row in matrix1]
 
 print('The product of the matrices is: \n')
 for r in result_mul:
-    #print(r)
-    print('{:>15}'.format(*r))
+    print(r)
+    #print('{:>15}'.format(*r))
 print('\n')   
