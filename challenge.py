@@ -118,13 +118,15 @@ def create_matrix(matrix_size):
     matrix based on an integer input
     """
     count = matrix_size
+    row_num = matrix_size
     matrix = []
 
     while count > 0:
-        matrix_row = int(input("please enter a row of integers: "))
-        if len(str(matrix_row)) == matrix_size:
-            matrix += [[i for i in str(matrix_row)]]
+        matrix_row = [int(x) for x in input('Please enter a row of integers, put a space between each: ').split()]
+        if len(matrix_row) == matrix_size:
+            matrix += [matrix_row]
             count -= 1
+            row_num -= 1
         else:
             print("please enter the correct number of integers for the row", matrix_size)
             continue
@@ -135,10 +137,10 @@ matrix_size_in = int(input("Enter the size of the matrix: "))
 matrix_size = matrix_size_in
 
 matrix1 = create_matrix(matrix_size)
-print(matrix1)
+print('\n', matrix1, '\n')
 
 matrix2 = create_matrix(matrix_size)
-print(matrix2)
+print(matrix2, '\n')
 
 zero_list = '0' * matrix_size
 empty_matrix = [[i for i in zero_list]] * matrix_size
@@ -148,17 +150,23 @@ empty_matrix = [[i for i in zero_list]] * matrix_size
 
 result_add = [[int(matrix1[i][j]) + int(matrix2[i][j])  for j in range(len(matrix1[0]))] for i in range(len(matrix1))]
 
+print('The result of adding the matrices is: \n')
 for r in result_add:
-   print(r)
+    print(r)
+print('\n')   
 
 # 2. Difference between the matrices.
 
 result_sub = [[int(matrix1[i][j]) - int(matrix2[i][j])  for j in range(len(matrix1[0]))] for i in range(len(matrix1))]
 
+print('The difference between the matrices is: \n')
 for r in result_sub:
    print(r)
+print('\n')   
 
 result_mul = [[sum(int(a) * int(b) for a, b in zip(matrix1_row, matrix2_col)) for matrix2_col in zip(* matrix2)] for matrix1_row in matrix1]
 
+print('The difference between the matrices is: \n')
 for r in result_mul:
    print(r)
+print('\n')   
